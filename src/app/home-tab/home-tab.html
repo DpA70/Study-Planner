@@ -1,0 +1,22 @@
+<div class="app-container">
+    
+    <!-- Center Content -->
+    <main class="center-content">
+      <div class="content-box">
+        <img src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" 
+             alt="Bot Animation"
+             class="bot-gif" />
+        <h1 class="welcome-title">Welcome to Study Planner</h1>
+        <p class="subtitle">Give me topic and I will give you study schedule</p>
+      </div>
+    </main>
+
+    <!-- Input Bar -->
+    <footer class="chat-footer">
+      <div class="input-wrapper">
+        <input type="text" [(ngModel)]="typedText" placeholder="Type your topic name..." class="chat-input" (keydown)="onEnter($event)"/>
+        <button class="send-btn" (click)="getSchedule()">Send</button>
+      </div>
+    </footer>
+
+  </div>

@@ -1,0 +1,82 @@
+<!-- nav-bar.html -->
+<mat-toolbar color="primary" class="navbar">
+  <div class="navbar-left" (click)="redirectToHome()">
+    <mat-icon class="logo">school</mat-icon>
+    <span class="app-name">Study Planner</span>
+  </div>
+
+  <!-- Navigation Tabs -->
+  <nav mat-tab-nav-bar [tabPanel]="tabPanel" *ngIf="isLoggedIn">
+    <a
+      mat-tab-link
+      *ngFor="let tab of tabs"
+      [routerLink]="tab.route"
+      routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+      <mat-icon class="tab-icon">{{ tab.icon }}</mat-icon>
+      {{ tab.label }}
+    </a>
+  </nav>
+
+  <!-- Required tab panel -->
+  <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+  <div class="navbar-spacer"></div>
+
+  <!-- Theme toggle -->
+  <button mat-icon-button (click)="toggleTheme()" aria-label="Toggle Theme">
+    <mat-icon>{{ isDarkTheme ? 'dark_mode' : 'light_mode' }}</mat-icon>
+  </button>
+
+  <!-- User Profile Menu -->
+  <button 
+    mat-icon-button 
+    [matMenuTriggerFor]="userMenu" 
+    aria-label="User Profile"
+    *ngIf="isLoggedIn; else loginButton">
+    <!-- Show profile photo if available, otherwise show default icon -->
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <ng-template #loginButton>
+    <button mat-raised-button color="accent" (click)="redirectToLogin()">
+      <mat-icon>login</mat-icon>
+      Login
+    </button>
+  </ng-template>
+
+  <!-- User Menu Dropdown -->
+  <mat-menu #userMenu="matMenu" class="user-menu">
+    <!-- User Info Section -->
+    <!-- <div class="user-info-section" *ngIf="userInfo">
+      <div class="user-avatar-container">
+        <img 
+          *ngIf="userInfo.picture" 
+          [src]="userInfo.picture" 
+          alt="Profile" 
+          class="user-avatar-large">
+        <mat-icon *ngIf="!userInfo.picture" class="user-avatar-large">account_circle</mat-icon>
+      </div>
+      <div class="user-details">
+        <div class="user-email">{{ userInfo.email || 'user@example.com' }}</div>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider> -->
+
+    <!-- Menu Items -->
+    <button mat-menu-item (click)="redirectToProfile()">
+      <mat-icon>person</mat-icon>
+      <span>{{ userInfo?.name || 'User' }}</span><br>
+      <span style="font-size: 10px;">{{ userInfo?.email || 'user@example.com' }}</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <!-- Logout -->
+    <button mat-menu-item (click)="logout()" class="logout-button">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

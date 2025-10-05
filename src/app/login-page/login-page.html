@@ -1,0 +1,29 @@
+<div class="login-container">
+    <mat-card>
+        <mat-tab-group class="login-tabs" mat-align-tabs="start">
+            <mat-tab label="Sign In">
+                <form class="login-form">
+                    <h2>Welcome</h2>
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" autocomplete="email" required />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" autocomplete="current-password" required />
+                    </mat-form-field>
+                    <a class="forgot-password" href="#">Forgot password?</a>
+                    <button mat-raised-button color="primary" class="full-width sign-in-btn">Sign In</button>
+                    <div class="divider-text">Or sign in with</div>
+                    <button mat-stroked-button class="full-width google-btn" (click)="signInWithGoogle()">
+                        <mat-icon></mat-icon>
+                        Sign In with Google
+                    </button>
+                </form>
+            </mat-tab>
+            <mat-tab label="Create Account">
+                <!-- Add your registration form code here -->
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+</div>

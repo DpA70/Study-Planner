@@ -1,0 +1,60 @@
+<div class="events-wrapper">
+    <!-- Calendar Side -->
+    <aside class="calendar-col">
+        <div class="calendar-header">This Week</div>
+        <ul class="days-list">
+            <li *ngFor="let d of days" (click)="selectDay(d.isoDate)" [class.active]="selectedDayIso === d.isoDate"
+                class="day-item">
+                <div class="day-label">{{ d.label }}</div>
+                <span class="day-badge" *ngIf="eventsFor(d.isoDate).length > 0">
+                    {{ eventsFor(d.isoDate).length }}
+                </span>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Events Side -->
+    <main class="events-col">
+        <div class="events-header">
+            <h2>Events on {{ getDayLabelByIsoDate(selectedDayIso || '') }}</h2>
+            <button mat-stroked-button color="primary" class="today-btn" (click)="selectedDayIso = days[0].isoDate">
+                Today
+            </button>
+        </div>
+
+        <div class="events-list">
+            <ng-container *ngIf="eventsFor(selectedDayIso || '')?.length; else empty">
+                <mat-card class="event-card" *ngFor="let ev of eventsFor(selectedDayIso || '')">
+                    <mat-card-header>
+                        <mat-card-title>{{ ev.title }}</mat-card-title>
+                        <mat-card-subtitle>{{ ev.date | date:'fullDate' }}</mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <ul class="bullets">
+                            <li *ngFor="let b of ev.bullets">{{ b }}</li>
+                        </ul>
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                        <button mat-stroked-button color="accent" class="action-btn">
+                            <mat-icon>info</mat-icon>
+                            Details
+                        </button>
+                        <button mat-raised-button color="primary" class="action-btn">
+                            <mat-icon>group</mat-icon>
+                            Join
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </ng-container>
+
+            <ng-template #empty>
+                <div class="empty-state">
+                    <mat-icon>event_busy</mat-icon>
+                    <p>No events scheduled for this day</p>
+                </div>
+            </ng-template>
+        </div>
+    </main>
+</div>

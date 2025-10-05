@@ -1,0 +1,114 @@
+.header-toolbar {
+    background: transparent;
+    box-shadow: none;
+    padding-left: 16px;
+    .brand-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+    .spacer {
+      flex: 1 1 auto;
+    }
+    .toolbar-link {
+      color: #232323;
+      font-size: 1rem;
+      margin: 0 8px;
+      font-weight: 400;
+      text-transform: none;
+    }
+    .toolbar-signin {
+      font-weight: 500;
+      border-radius: 8px;
+    //   background: #f3f3f3;
+      color: #232323;
+      text-transform: none;
+      margin-left: 12px;
+    }
+    mat-icon {
+      font-size: 1.7rem;
+      margin-right: 2px;
+    }
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 89vh;
+    // background: #fff;
+    margin-top: 32px;
+  }
+  
+  mat-card {
+    width: 420px;
+    padding: 32px 32px 24px 32px;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  
+  .login-tabs {
+    .mat-tab-label {
+      font-weight: 500;
+      color: #333;
+      min-width: unset;
+      font-size: 1.06rem;
+    }
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      margin-top: 15px;
+    }
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .forgot-password {
+    font-size: 14px;
+    color: #3582ea;
+    text-decoration: none;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .sign-in-btn {
+    font-size: 1rem;
+    font-weight: 600;
+    height: 48px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  .divider-text {
+    align-self: center;
+    color: #888;
+    font-size: 15px;
+    margin: 14px 0 8px 0;
+  }
+  
+  .google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    height: 48px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    mat-icon {
+      margin-right: 8px;
+    }
+  }
+  

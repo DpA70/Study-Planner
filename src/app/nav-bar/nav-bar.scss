@@ -1,0 +1,197 @@
+// nav-bar.scss
+.navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .logo {
+      height: 32px;
+      width: 32px;
+      margin-right: 12px;
+    }
+
+    .app-name {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-right: 40px;
+    }
+  }
+
+  nav[mat-tab-nav-bar] {
+    margin-left: 8px;
+    flex-grow: 1;
+  }
+
+  .navbar-spacer {
+    flex: 1 1 auto;
+  }
+
+  // Profile photo in toolbar
+  .profile-photo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: border-color 0.2s ease;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+
+// User menu styles
+.user-menu {
+  min-width: 280px;
+  padding: 0;
+
+  .user-info-section {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+    .user-avatar-container {
+      margin-right: 12px;
+
+      .user-avatar-large {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(0, 0, 0, 0.1);
+      }
+
+      mat-icon.user-avatar-large {
+        font-size: 48px;
+        width: 48px;
+        height: 48px;
+        color: #666;
+      }
+    }
+
+    .user-details {
+      flex: 1;
+      overflow: hidden;
+
+      .user-name {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+        color: #333;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .user-email {
+        font-size: 0.9rem;
+        color: #666;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .mat-divider {
+    margin: 4px 0;
+  }
+
+  .logout-button {
+    color: #f44336; // Red color for logout
+
+    mat-icon {
+      color: #f44336;
+    }
+
+    &:hover {
+      background-color: rgba(244, 67, 54, 0.04);
+    }
+  }
+
+  // Menu items styling
+  button[mat-menu-item] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    mat-icon {
+      margin-right: 0;
+      color: #666;
+    }
+  }
+}
+
+// Dark theme support
+.dark-theme {
+  .user-menu {
+    .user-info-section {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+
+      .user-details {
+        .user-name {
+          color: #fff;
+        }
+
+        .user-email {
+          color: #bbb;
+        }
+      }
+    }
+
+    button[mat-menu-item] {
+      color: #e0e0e0;
+
+      mat-icon {
+        color: #bbb;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .navbar {
+    .navbar-left {
+      .app-name {
+        font-size: 1.2rem;
+        margin-right: 20px;
+      }
+    }
+
+    nav[mat-tab-nav-bar] {
+      display: none; // Hide tabs on mobile
+    }
+  }
+
+  .user-menu {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    .navbar-left {
+      .app-name {
+        display: none; // Hide app name on very small screens
+      }
+    }
+  }
+}
