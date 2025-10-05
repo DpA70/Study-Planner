@@ -1,8 +1,7 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -11,9 +10,14 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "es2020", // <--- Updated module option
+    "moduleResolution": "node",
+    "paths": {
+      "@angular/material": ["node_modules/@angular/material"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
